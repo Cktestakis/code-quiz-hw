@@ -1,0 +1,228 @@
+/*BODY*/
+html {
+    height: 100%;
+}
+
+/*FONT SYSTEM*/
+body {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #202020;
+
+    box-sizing: border-box;
+    margin: 0;
+    height: 100%;
+}
+
+/*Style*/
+/*HEADING*/
+h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+/*ICON*/
+.fas {
+    margin-right: 10px;
+}
+
+a {
+    color:firebrick;
+    text-decoration: none;
+    
+    transition: color 0.2 ease-in-out;
+}
+
+a:hover,
+a:focus,
+a:active {
+    color: rgb(226, 117, 117);
+}
+
+button,
+.back-button {
+    display: inline-block;
+    padding: 5px 15px;
+    margin: 0.5em 0.5em 0 0,5em;
+
+    border-radius: 4x;
+    border-style: none;
+
+    background-color: cadetblue;
+
+    color:floralwhite;
+    cursor: pointer;
+    font-size: 1em;
+    text-align: center;
+
+    transition: background-color 0.2s ease-in-out;
+}
+
+.back-button:hover,
+.back-button:focus,
+.back-button:active,
+button:hover,
+button:focus,
+button:active {
+    background-color: midnightblue;
+    color: white;
+}
+
+.back-button {
+    margin-left: 0;
+}
+/*HIDDEN*/
+.hidden {
+    display: none;
+}
+
+/*NAV*/
+nav {
+    padding: 15px;
+    border-bottom: 1px solid #cccbcb;
+}
+
+/*SECTIONS*/
+main {
+    display: flex;
+    flex-direction: column;
+
+    width: 80%;
+    margin: auto;
+    height: 75%;
+    box-sizing: border-box;
+    padding: 20px 0;
+}
+#start {
+    text-align: center;
+}
+
+/*QUESTIONS FOR QUIZ*/
+#questions {
+    font-size: 1.4em;
+}
+
+#timer,
+.choice-status {
+    text-align: center;
+}
+
+#timer {
+    border-bottom: 1px solid #cccbcb;
+    padding-bottom: 15px;
+
+    font-size: 1.35em;
+    font-weight: bold;
+}
+
+#time-remaining{
+    color: darkslateblue;
+}
+
+#choices {
+    list-style: none;
+    padding-left: 0;
+}
+
+#choices button {
+    margin-left: 0;
+}
+
+.choices-status {
+    font-size: 1.35em;
+    font-weight: bold;
+}
+
+#correct {
+    color: darkslateblue;
+}
+
+#wrong {
+    color:red;
+}
+
+/*Choice Status*/
+#quiz-questions,
+#end {
+    border-bottom: 1px solid #cccbcb;
+    padding-bottom: 15px;
+}
+
+/*END*/
+#score-text {
+    font-size: 1.2em;
+}
+
+#score {
+    font-weight: bold;
+    color: firebrick;
+}
+
+/*FORM*/
+#submit-score {
+    margin-bottom: 10px;
+}
+
+#submit-score label {
+    display: block;
+}
+
+#initials {
+    padding: 3px;
+    font-size: 1em;
+
+    border-radius: 4px;
+    box-sizing: border-box;
+} 
+
+.error {
+    border: 1.5px solid red;
+}
+
+#error-message {
+    color: red;
+    margin-top: 5px;
+}
+
+/*HIGH SCORE*/
+table {
+    border-spacing: 0 0.5em;
+}
+
+tr:nth-child(even) {
+    background-color: white;
+}
+
+td, th {
+    padding: 10px;
+}
+
+th {
+    border-bottom: 1px; solid #cecece;
+}
+
+td {
+    text-align: center;
+}
+
+th:first-child,
+td:first-child {
+    text-align: left;
+}
+
+th:last-child,
+td:last-child {
+    text-align: right;
+}
+
+/*BREAK POINTS*/
+@media only screen and (min-width: 992px) {
+   main {
+    width: 60%
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    main {
+     width: 40%
+     }
+ }
