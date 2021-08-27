@@ -1,5 +1,5 @@
 //SECTION LIST
-const QUIZ_SECTION = document.querySelectorAll(".quiz-section")
+const QUIZ_SECTIONS = document.querySelectorAll(".quiz-section")
 
 //START
 const START_SECTION = document.getElementById("start");
@@ -55,7 +55,7 @@ SUBMIT_SCORE.addEventListener('submit', processInput);
 
 /*START GAME*/
 function startGame() {
-    SVGFEDropShadowElement(QUIZ_SECTIONS, QUIZ_SECTION);
+    showElement(QUIZ_SECTIONS, QUIZ_SECTION);
 
     displayTime();
     displayQuestion();
@@ -114,7 +114,7 @@ function displayQuestion() {
 }
 
 function displayChoiceList() {
-    CHOICES.innterHTML = "";
+    CHOICES.innerHTML = "";
 
     QUESTION_LIST[currentQuestion].choices.forEach(function(answer, index) {
         const li = document.createElement("li");
