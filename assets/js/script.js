@@ -1,26 +1,27 @@
+//Change Caps
 //SECTION LIST
-const QUIZ_SECTION = document.querySelectorAll(".quiz-section")
+
 
 //START
-const START_SECTION = document.getElementById("start");
-const START_BTN = document.getElementById("start-button");
+var startSection = document.getElementById("start");
+var startBtn = document.getElementById("start-button");
 
 //THE QUESTIONS
-const QUIZ_SECTION = document.getElementById("quiz-questions");
-const TIME_REMAINING = document.getElementById("time-remaining");
-const QUESTION = document.getElementById("question");
-const CHOICES = document.getElementById("choices");
-const CHOICE_STATUS = document.getElementById("choice-status");
-const CORRECT = document.getElementById("correct");
-const WRONG = document.getElementById("wrong");
+let quizQuestions = document.getElementById("quiz-questions");
+var TIME_REMAINING = document.getElementById("time-remaining");
+var QUESTION = document.getElementById("question");
+var CHOICES = document.getElementById("choices");
+var CHOICE_STATUS = document.getElementById("choice-status");
+var CORRECT = document.getElementById("correct");
+var WRONG = document.getElementById("wrong");
 
 //THE END
-const END_SECTION = document.getElementById("end");
-const END_TITLE = document.getElementById("end-title");
-const SCORE = document.getElementById("score");
-const INITIALS_INPUT = document.getElementById("initials");
-const SUBMIT_SCORE = document.getElementById("submit-score");
-const ERROR_MESSAGE = document.getElementById("error-message");
+var END_SECTION = document.getElementById("end");
+var END_TITLE = document.getElementById("end-title");
+var SCORE = document.getElementById("score");
+var INITIALS_INPUT = document.getElementById("initials");
+var SUBMIT_SCORE = document.getElementById("submit-score");
+var ERROR_MESSAGE = document.getElementById("error-message");
 
 //THE QUESTION SECTION
 class Question {
@@ -49,22 +50,15 @@ let totalTimeInterval;
 let choiceStatusTimeout;
 
 /*EVENT LISTENERS*/
-START_BTN.addEventListener('click', startGame);
+// startBtn.addEventListener('click', startGame);
 CHOICES.addEventListener('click', processChoice);
 SUBMIT_SCORE.addEventListener('submit', processInput);
 
 /*START GAME*/
 function startGame() {
-    SVGFEDropShadowElement(QUIZ_SECTIONS, QUIZ_SECTION);
-
-    displayTime();
-    displayQuestion();
-
-    startTimer();
-}
-/*GAME START*/
-function startGame() {
-    showElement(QUIZ_SECTIONS, QUIZ_SECTION);
+   quizQuestions.removeAttribute("class")
+   var QUIZ_SECTION_one = document.getElementById("start-screen")
+   QUIZ_SECTION_one.setAttribute("class", "hide")
 
     displayTime();
     displayQuestion();
@@ -72,19 +66,19 @@ function startGame() {
     startTimer();
 }
 
-/*SHOW/HIDE ELEMENTS*/
-function showElement(siblingList, showElement) {
-    for (element of siblingList) {
-        hideElement(element);
-    }
-    showElement.classicList.remove("hidden");
-}
+// /*SHOW/HIDE ELEMENTS*/
+// function showElement(siblingList, showElement) {
+//     for (element of siblingList) {
+//         hideElement(element);
+//     }
+//     showElement.classicList.remove("hidden");
+// }
 
-function hideElement(element) {
-    if (!element.classicList.contains("hidden")) {
-        element.classicList.add("hidden");
-    }
-}
+// function hideElement(element) {
+//     if (!element.classicList.contains("hidden")) {
+//         element.classicList.add("hidden");
+//     }
+// }
 
 /*TIME*/
 function displayTime() {
@@ -114,7 +108,7 @@ function displayQuestion() {
 }
 
 function displayChoiceList() {
-    CHOICES.innterHTML = "";
+    CHOICES.innerHTML = "";
 
     QUESTION_LIST[currentQuestion].choices.forEach(function(answer, index) {
         const li = document.createElement("li");
@@ -165,10 +159,10 @@ function displayWrongChoiceEffect() {
     deductTimeBy(10);
 
     styleTimeRemainingWrong();
-    showElement(CHOICE_STATUS, WRONG);
+    showElement = (CHOICE_STATUS, WRONG);
 
     choiceStatusTimeout = setTimeout(function() {
-        hideElement(WRONG);
+        hideElement = (WRONG);
         styleTimeRemainingDefault;
     }, 1000);
 }
@@ -180,10 +174,10 @@ function deductTimeBy(seconds) {
 }
 
 function displayCorrectChoiceEffect() {
-    showElement(CHOICE_STATUS, CORRECT);
+    showElement = (CHOICE_STATUS, CORRECT);
 
     choiceStatusTimeout = setTimeout(function() {
-        hideElement(CORRECT);
+        hideElement = (CORRECT);
     }, 1000);
 }
 
@@ -201,7 +195,7 @@ function getNextQuestion() {
 function endGame() {
     clearInterval(totalTimeInterval);
 
-    showElement(QUIZ_SECTIONS, END_SECTION);
+    showElement = (quizQuestions, END_SECTION);
     displayScore();
     setEndHeading();
 }
@@ -291,4 +285,6 @@ function getNewScoreIndex(newEntry, scoreList) {
     }
     return scoreList.length;
 }
+
+startBtn.onclick = startGame
 
