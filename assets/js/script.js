@@ -24,25 +24,38 @@ var SUBMIT_SCORE = document.getElementById("submit-score");
 var ERROR_MESSAGE = document.getElementById("error-message");
 
 //THE QUESTION SECTION
-class Question {
-    constructor(question, choices, indexOfCorrectChoice) {
+function questions (choices) {
         this.question = question;
         this.choices = choices;
         this.indexOfCorrectChoice = indexOfCorrectChoice;
-    }
 }
-
-var QUESTION_1 = new Question("Which of the following is not a valid JavaScript variable name? ",
-["2names", "_first_and_last_names", "FirstAndLast", "None of the Above"], 1);
-var QUESTION_2 = new Question("____ tag is an extension to HTML that can enclose any number of JavaScript",
-["<SCRIPT>", "<BODY>", "<HEAD>", "<TITLE>"], 1);
-var QUESTION_3 = new Question("The _________ method of an Array object adds and/or removes elements from an array", 
-["Reverse", "Shift", "Slice", "Splice"], 3);
-var QUESTION_4 = new Question("Which of the following is not considered a JavaScript operator", 
-["new", "this", "delete", "typeof"], 1);
-var QUESTION_5 = new Question("In JavaScript, _______ is an object of the target language data type that encloses an object of the source language.", 
-["a Wrapper", "a link", "a cursor", "a form"], 0);
-var QUESTION_LIST = [QUESTION_1, QUESTION_2, QUESTION_3, QUESTION_4, QUESTION_5];
+var questionList = [
+    {
+        title: "Which of the following is not a valid JavaScript variable name?",
+        choices: ["2names", "_first_and_last_names", "FirstAndLast", "None of the Above"],
+        answer: "2names",
+    },
+    {
+        title: "____ tag is an extension to HTML that can enclose any number of JavaScript",
+        choices: ["<script>", "<body>", "<head>", "<title>"],
+        answer: "<script>",
+    },
+    {
+        title: "The ____ method of an Array object adds and/or removes elements from an array",
+        choices: ["Reverse", "Shift", "Slice", "Splice"],
+        answer: "Slice",
+    },
+    {
+        title: "Which of the following is not considered to JavaScript operator",
+        choices: ["new", "this", "delete", "typeof"],
+        answer: "new",
+    },
+    {
+        title: "In JavaScript, _____ is an object of the target language data type that encloses an object of the source language",
+        choices: ["a Wrapper", "a link", "a cursor", "a form"],
+        answer: "a Wrapper",
+    },
+];
 
 let currentQuestion = 0;
 
@@ -103,7 +116,7 @@ function checkTime() {
 
 /*QUESTIONS*/
 function displayQuestion() {
-    QUESTION.textContent = QUESTION_LIST[currentQuestion].question;
+    question.textContent = questionList[currentQuestion].question;
 
     displayChoiceList();
 }
@@ -111,7 +124,7 @@ function displayQuestion() {
 function displayChoiceList() {
     CHOICES.innerHTML = "";
 
-    QUESTION_LIST[currentQuestion].choices.forEach(function(answer, index) {
+    questionList[currentQuestion].choices.forEach(function(answer, index) {
         const li = document.createElement("li");
         li.dataset.index = index;
         const button = document.createElement("button");
@@ -153,7 +166,7 @@ function checkChoice(userChoice) {
 }
 
 function isChoiceCorrect(choice) {
-    return choice === QUESTION_LIST[currentQuestion].indexOfCorrectChoice;
+    return choice === questionList[currentQuestion].indexOfCorrectChoice;
 }
 
 function displayWrongChoiceEffect() {
@@ -185,7 +198,7 @@ function displayCorrectChoiceEffect() {
 //GET NEXT QUESTION//
 function getNextQuestion() {
     currentQuestion++;
-    if (currentQuestion >= QUESTION_LIST.length) {
+    if (currentQuestion >= questionList.length) {
         endGame();
     } else {
         displayQuestion();
@@ -258,7 +271,7 @@ function displayFormError(errorMessage) {
 
 function saveHighscoreEntry(highscoreEntry) {
     const currentScores = getScoreList();
-    placeEntryInHightscoreList(highscoreEntry, currentScores);
+    placeEntryInHighscoreList(highscoreEntry, currentScores);
     localStorage.setItem('scoreList', JSON.stringify(currentScores));
 }
 
@@ -271,7 +284,7 @@ function getScoreList() {
     }
 }
 
-function placeEntryInHightscoreList(newEntry, scoreList) {
+function placeEntryInHighscoreList(newEntry, scoreList) {
     const newScoreIndex = getNewScoreIndex(newEntry, scoreList);
     scoreList.splice(newScoreIndex, 0, newEntry);
 }
