@@ -7,6 +7,7 @@ This application tests the user's understanding of basic coding concepts. The us
 
 A look at the first page of the deployed application:
 
-![Demo of Quiz Game](demo/demo.gif)
+![CodeQuizChallenge](https://user-images.githubusercontent.com/64503311/141356415-e73d2513-63bb-447d-acd3-39f0b70f5489.gif)
 
 ## Link to working application:
+![CodeQuizChallenge](https://github.com/Cktestakis/code-quiz-hw)
